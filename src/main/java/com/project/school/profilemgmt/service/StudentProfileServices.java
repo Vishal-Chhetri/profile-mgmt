@@ -3,6 +3,8 @@
  */
 package com.project.school.profilemgmt.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,9 +21,10 @@ public class StudentProfileServices {
 	@Autowired
 	private StudentProfileRepository studentProfileRepository;
 	
-	public Student createStudentProfile(Student student) {
-		//student.setJoiningDate(new Date());
+	public Student saveStudentProfile(Student student) {
 		return studentProfileRepository.save(student);
 	}
-
+	public Optional<Student> findById(String id) {
+		return studentProfileRepository.findById(id);
+	}
 }

@@ -1,4 +1,6 @@
-
+/**
+ * 
+ */
 package com.project.school.profilemgmt.controller;
 
 import java.util.Optional;
@@ -12,29 +14,26 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project.school.profilemgmt.model.Student;
-import com.project.school.profilemgmt.service.StudentProfileServices;
+import com.project.school.profilemgmt.model.Guardian;
+import com.project.school.profilemgmt.service.GuardianProfileService;
 
 /**
  * @author Vishal
  *
  */
 @RestController
-@RequestMapping("/studentProfile")
-public class StudentProfileController {
-	
+@RequestMapping("/guardianProfile")
+public class GuardianProfileController {
 	@Autowired
-	private StudentProfileServices studentProfileService; 
+	private GuardianProfileService guardianProfileService;
 	
-	@GetMapping("")
-	public Optional<Student> getUserProfileById(@PathParam(value="id") String id) {
-		System.out.println(id);
-		return studentProfileService.findById(id);
+	@GetMapping("")	
+	public Optional<Guardian> getGuardianById(@PathParam(value="id" )String id){
+		return guardianProfileService.getGuardianById(id);
 	}
-	
 	@PutMapping("")
-	public Student createStudentProfile(@RequestBody Student student) {		
-		return studentProfileService.saveStudentProfile(student);
+	public Guardian saveGuardian(@RequestBody Guardian guardian) {
+		return guardianProfileService.saveGuardian(guardian);
 	}
 
 }

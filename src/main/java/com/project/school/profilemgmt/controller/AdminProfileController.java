@@ -13,5 +13,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/adminProfile")
 public class AdminProfileController {
-
+	
 }
